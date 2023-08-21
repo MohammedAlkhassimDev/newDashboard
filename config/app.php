@@ -85,6 +85,13 @@ return [
 
     'locale' => 'en',
 
+    'languages' => [
+        'ar' => 'العربية',
+        'en' => 'English'
+    ],
+
+    'name' => 'Killua',
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
