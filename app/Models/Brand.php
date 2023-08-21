@@ -16,5 +16,9 @@ class Brand extends Model implements Translatable
 
     protected $fillable=['slug','status'];
 
+    public function products () {
+        return $this->hasMany(Product::class, 'brand_id');
+    } // End of products
+
 
 } // End of model  

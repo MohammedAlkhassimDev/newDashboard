@@ -33,4 +33,8 @@ class Product extends Model implements Translatable
         return $this->hasMany(ProductImages::class, 'product_id');
     } // End of product images
 
+    public function brand () {
+        $this-> belongsTo('App\Models\Brand', 'brand_id');
+    } // end of brand
+
 } // End of model 
