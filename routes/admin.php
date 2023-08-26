@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -47,6 +48,16 @@ Route::group(
 
                 // Products
                 Route::resource('/products', ProductController::class);
+                
+                // Order
+                Route::resource('/order', OrderController::class);
+                // Route::get('orders', [OrderController::class,'index']) -> name ('order.index');
+                // Route::get('order/create', [OrderController::class,'create']) -> name ('order.create');
+                // Route::post('order/store', [OrderController::class,'store']) -> name ('order.store');
+                // Route::get('order/edit', [OrderController::class,'edit']) -> name ('order.edit');
+                // Route::post('order/update', [OrderController::class,'update']) -> name ('order.update');
+                // Route::get('order/show', [OrderController::class,'show']) -> name ('order.show');
+                // Route::post('order/destroy', [OrderController::class,'show']) -> name ('order.destroy');
             });
 
             require __DIR__ . '/adminAuth.php';

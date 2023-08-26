@@ -45,6 +45,9 @@
                     <a href="{{ route ('dashboard.products.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Products</span></a>
                 </li>
                 <li>
+                    <a href="{{ route ('dashboard.order.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Orders</span></a>
+                </li>
+                <li>
                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">eCommerce</span></a>
                     <ul>
                         <li>
