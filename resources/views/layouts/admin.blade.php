@@ -15,40 +15,41 @@
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="{{ asset('assets/front-assets/img/favicon.png')}}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon57.png')}}" sizes="57x57">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon72.png')}}" sizes="72x72">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon76.png')}}" sizes="76x76">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon114.png')}}" sizes="114x114">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon120.png')}}" sizes="120x120">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon144.png')}}" sizes="144x144">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon152.png')}}" sizes="152x152">
-    <link rel="apple-touch-icon" href="{{ asset('assets/front-assets/img/icon180.png')}}" sizes="180x180">
+    <link rel="shortcut icon" href="{{ asset('assets/admin-assets/img/favicon.png')}}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon57.png')}}" sizes="57x57">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon72.png')}}" sizes="72x72">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon76.png')}}" sizes="76x76">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon114.png')}}" sizes="114x114">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon120.png')}}" sizes="120x120">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon144.png')}}" sizes="144x144">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon152.png')}}" sizes="152x152">
+    <link rel="apple-touch-icon" href="{{ asset('assets/admin-assets/img/icon180.png')}}" sizes="180x180">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
     <!-- Bootstrap is included in its original form, unaltered -->
-    <link rel="stylesheet" href="{{ asset('assets/front-assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/admin-assets/css/bootstrap.min.css')}}">
 
     <!-- Related styles of various icon packs and plugins -->
-    <link rel="stylesheet" href="{{ asset('assets/front-assets/css/plugins.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/admin-assets/css/plugins.css')}}">
 
     <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-    <link rel="stylesheet" href="{{ asset('assets/front-assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/admin-assets/css/main.css')}}">
 
 
     <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
-    <link rel="stylesheet" href="{{ asset('assets/front-assets/css/themes.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/admin-assets/css/themes.css')}}">
     <!-- END Stylesheets -->
 
     <!-- Modernizr (browser feature detection library) -->
-    <script src="{{ asset('assets/front-assets/js/vendor/modernizr.min.js')}}"></script>
+    <script src="{{ asset('assets/admin-assets/js/vendor/modernizr.min.js')}}"></script>
 
     <style>
         .d-none {
             display: none;
         }
     </style>
+    @notifyCss
 </head>
 
 <body>
@@ -57,7 +58,7 @@
 
         <!-- Used only if page preloader is enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
         <div class="preloader themed-background">
-            <h1 class="push-top-bottom text-light text-center"><strong>Pro</strong>UI</h1>
+            <h1 class="text-center push-top-bottom text-light"><strong>Pro</strong>UI</h1>
             <div class="inner">
                 <h3 class="text-light visible-lt-ie10"><strong>Loading..</strong></h3>
                 <div class="preloader-spinner hidden-lt-ie10"></div>
@@ -84,10 +85,10 @@
                         'navbar-default'            for the default light header
                         'navbar-inverse'            for an alternative dark header
 
-                        'navbar-fixed-top'          for a top fixed header (fixed sidebars with scroll will be auto initialized, functionality can be found in {{ asset('assets/front-assets/js/app.js')}} - handleSidebar())
+                        'navbar-fixed-top'          for a top fixed header (fixed sidebars with scroll will be auto initialized, functionality can be found in {{ asset('assets/admin-assets/js/app.js')}} - handleSidebar())
                             'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
 
-                        'navbar-fixed-bottom'       for a bottom fixed header (fixed sidebars with scroll will be auto initialized, functionality can be found in {{ asset('assets/front-assets/js/app.js')}} - handleSidebar()))
+                        'navbar-fixed-bottom'       for a bottom fixed header (fixed sidebars with scroll will be auto initialized, functionality can be found in {{ asset('assets/admin-assets/js/app.js')}} - handleSidebar()))
                             'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
                     -->
 
@@ -111,7 +112,7 @@
                 </div>
                 <!-- END Page Content -->
 
-               
+
 
                 <!-- Footer -->
 
@@ -124,7 +125,7 @@
     </div>
     <!-- END Page Wrapper -->
 
-    <!-- Scroll to top link, initialized in {{ asset('assets/front-assets/js/app.js')}} - scrollToTop() -->
+    <!-- Scroll to top link, initialized in {{ asset('assets/admin-assets/js/app.js')}} - scrollToTop() -->
     <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
 
     <!-- User Settings, modal which opens from Settings link (found in top right user menu) and the Cog link (found in sidebar user info) -->
@@ -132,7 +133,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Modal Header -->
-                <div class="modal-header text-center">
+                <div class="text-center modal-header">
                     <h2 class="modal-title"><i class="fa fa-pencil"></i> Settings</h2>
                 </div>
                 <!-- END Modal Header -->
@@ -180,7 +181,7 @@
                             </div>
                         </fieldset>
                         <div class="form-group form-actions">
-                            <div class="col-xs-12 text-right">
+                            <div class="text-right col-xs-12">
                                 <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
                             </div>
@@ -193,18 +194,18 @@
     </div>
     <!-- END User Settings -->
 
-    <script src="{{ asset('assets/front-assets/js/vendor/jquery.min.js')}}"></script>
-    <script src="{{ asset('assets/front-assets/js/vendor/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('assets/front-assets/js/plugins.js')}}"></script>
-    <script src="{{ asset('assets/front-assets/js/app.js')}}"></script>
+    <script src="{{ asset('assets/admin-assets/js/vendor/jquery.min.js')}}"></script>
+    <script src="{{ asset('assets/admin-assets/js/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/admin-assets/js/plugins.js')}}"></script>
+    <script src="{{ asset('assets/admin-assets/js/app.js')}}"></script>
 
     <!-- Google Maps API Key (you will have to obtain a Google Maps API key to use Google Maps) -->
     <!-- For more info please have a look at https://developers.google.com/maps/documentation/javascript/get-api-key#key -->
     <script src="https://maps.googleapis.com/maps/api/js?key="></script>
-    <script src="{{ asset('assets/front-assets/js/helpers/gmaps.min.js')}}"></script>
+    <script src="{{ asset('assets/admin-assets/js/helpers/gmaps.min.js')}}"></script>
 
     <!-- Load and execute javascript code used only in this page -->
-    <script src="{{ asset('assets/front-assets/js/pages/index2.js')}}"></script>
+    <script src="{{ asset('assets/admin-assets/js/pages/index2.js')}}"></script>
     <script>
         $(function() {
             Index2.init();
@@ -212,11 +213,11 @@
     </script>
 
 <script>
-    // select the element id and when in change 
+    // select the element id and when in change
     $('#is_parent').change(function () {
         // def the var and check if has property checked or not
         var is_checked = $('#is_parent').prop('checked');
-        
+
         if (is_checked) {
             $('#parent_cat_div').addClass('d-none');
             $('#parent_cat_div').val('');
@@ -229,6 +230,10 @@
 
 
 @stack('scripts')
+
+<x-notify::notify />
+@notifyJs
+
 </body>
 
 </html>

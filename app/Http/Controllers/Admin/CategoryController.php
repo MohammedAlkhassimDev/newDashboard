@@ -28,7 +28,7 @@ class CategoryController extends Controller
         $parent_cats = Category::where('is_parent', 1)->orderBy('slug', 'ASC')->get();
 
         return view('admin.categories.create', compact('parent_cats'));
-    } // End of create 
+    } // End of create
 
 
     public function store(Request $request)
@@ -56,7 +56,7 @@ class CategoryController extends Controller
         $request_data = $request->except(['_token', 'image']);
 
         if ($request->has('image')) {
-            // upload photo 
+            // upload photo
             $request_data['photo'] = $this->UploadSinglePhoto($request -> image , '/media');
         }
 
@@ -76,8 +76,11 @@ class CategoryController extends Controller
 
         Category::create($request_data);
 
+        \notify()->success('Category Add Successfully');
+
+
         return redirect()->route('dashboard.categories.index');
-    } // End of store 
+    } // End of store
 
     public function edit(Category $category)
     {
@@ -105,7 +108,7 @@ class CategoryController extends Controller
         if ($request->has('image')) {
 
             $request_data['photo'] = $this->UploadSinglePhoto($request -> image, '/media');
-        } // end upload image 
+        } // end upload image
 
         // $slug = Str::slug($request->en['title']);
         // $count = Category::where('slug', $slug)->count();
@@ -127,14 +130,17 @@ class CategoryController extends Controller
 
         $category->update($request_data);
 
+        \notify()->success('Category Updated Successfully');
+
+
         return redirect()->route('dashboard.categories.index');
-    } // end of update 
+    } // end of update
 
 
     public function destroy(Category $category)
     {
         $child_cat_id = Category::where('parent_id',  $category->id)->pluck('id');
-        // return  $cat_child_id; // 
+        // return  $cat_child_id; //
         $status = $category->delete();
 
         if ($status) {
@@ -146,13 +152,15 @@ class CategoryController extends Controller
             // request()->session()->flash('error','Error while deleting category');
         }
 
+        \notify()->success('Category Deleted Successfully');
+
         return redirect()->route('dashboard.categories.index');
     } // End of destroy
 
     public function getChildByParent (Request $request) {
 
         $parent_id = $request->id;
-        
+
         $child_cats = Category::where('parent_id', $parent_id) -> get();
     //     DB::table('categories')
     // ->select('title AS new_column_name', 'another_original_column AS another_new_column')
@@ -160,9 +168,9 @@ class CategoryController extends Controller
     // Add any additional queries or conditions as needed
     // ->get();
         // return $child_cats;
-        
+
         if (count($child_cats) > 0) {
-            
+
             return response() -> json (['data' => $child_cats , 'status' => true]);
         }else {
             return response()->json(['status'=>false,'msg'=>'','data'=>null]);
@@ -170,4 +178,4 @@ class CategoryController extends Controller
 
     } // End of getChildByParent
 
-} // End of controller 
+} // End of controller

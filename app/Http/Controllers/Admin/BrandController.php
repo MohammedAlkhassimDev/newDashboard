@@ -17,7 +17,7 @@ class BrandController extends Controller
 
     public function create () {
         return view ('admin.brands.create');
-    } // End of create 
+    } // End of create
 
     public function store (Request $request) {
         // return "brand store";
@@ -36,6 +36,8 @@ class BrandController extends Controller
         $request_data['slug'] = $slug;
 
         Brand::create($request_data);
+
+        \notify()->success('Brand Add Successfully');
 
         return redirect()->route('dashboard.brands.index');
 
@@ -62,12 +64,18 @@ class BrandController extends Controller
 
         $brand -> update($request_data);
 
+        \notify()->success('Brand Updated Successfully');
+
+
         return redirect()->route('dashboard.brands.index');
-    } // End of update 
+    } // End of update
 
     public function destroy (Brand $brand) {
         $brand -> delete();
+
+        \notify()->success('Brand Deleted Successfully');
+
         return redirect()->route('dashboard.brands.index');
     } // End of destroy
 
-} // End of controller 
+} // End of controller
