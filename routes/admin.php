@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\BannerController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -37,7 +38,7 @@ Route::group(
                 // Settings
                 Route::get('/setting', [SettingController::class, 'index'])->name('setting');
                 Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');
-                
+
                 // Category
                 Route::resource('/categories', CategoryController::class);
                 // Ajax for sub category
@@ -48,7 +49,11 @@ Route::group(
 
                 // Products
                 Route::resource('/products', ProductController::class);
-                
+
+
+                 // Banners
+                 Route::resource('/banners', BannerController::class);
+
                 // Order
                 Route::resource('/order', OrderController::class);
                 // Route::get('orders', [OrderController::class,'index']) -> name ('order.index');
@@ -67,7 +72,7 @@ Route::group(
 // Route::get('/dashboard', function () {
     //     return view('dashboard');
     // })->middleware(['auth', 'verified'])->name('dashboard');
-    
+
     // Route::middleware('auth')->group(function () {
         //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
