@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home(){
-        return view('front.pages.home');
+        $banners = Banner::get();
+        $products = Product::get();
+        $categories = Category::get();
+        $brands = Brand::get();
+        return view('front.pages.home' , compact('banners' , 'products' , 'categories' , 'brands') ,);
     }
 
     public function shop(){

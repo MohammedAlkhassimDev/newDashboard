@@ -12,7 +12,7 @@
             <!-- END Brand -->
 
             <!-- User Info -->
-            <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
+            <div class="clearfix sidebar-section sidebar-user sidebar-nav-mini-hide">
                 <div class="sidebar-user-avatar">
                     <a href="page_ready_user_profile.html">
                         <img src="{{ asset('assets/front-assets/img/avatar.jpg')}}" alt="avatar">
@@ -37,6 +37,9 @@
                 </li>
                 <li>
                     <a href="{{ route ('dashboard.categories.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Category</span></a>
+                </li>
+                <li>
+                    <a href="{{ route ('dashboard.banners.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Banner</span></a>
                 </li>
                 <li>
                     <a href="{{ route ('dashboard.brands.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Brand</span></a>
@@ -71,7 +74,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-header">
-                    <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Create the most amazing pages with the widget kit!"><i class="gi gi-lightbulb"></i></a></span>
+                    <span class="clearfix sidebar-header-options"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Create the most amazing pages with the widget kit!"><i class="gi gi-lightbulb"></i></a></span>
                     <span class="sidebar-header-title">Widget Kit</span>
                 </li>
                 <li>
@@ -87,11 +90,11 @@
                     <a href="{{ route ('dashboard.setting') }}"><i class="gi gi-link sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Settings</span></a>
                 </li>
                 <!-- <li class="sidebar-header">
-                    <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
+                    <span class="clearfix sidebar-header-options"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
                     <span class="sidebar-header-title">Design Kit</span>
                 </li> -->
-               
-           
+
+
             </ul>
             <!-- END Sidebar Navigation -->
 
