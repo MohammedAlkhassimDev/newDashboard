@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CouponController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -53,6 +54,10 @@ Route::group(
 
                  // Banners
                  Route::resource('/banners', BannerController::class);
+
+                 // Coupons
+                 Route::resource('/coupons', CouponController::class);
+                 Route::post('/coupons/status', [CouponController::class, 'couponStatus']) -> name('coupon.status');
 
                 // Order
                 Route::resource('/order', OrderController::class);

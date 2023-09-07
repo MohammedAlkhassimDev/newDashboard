@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('front.layouts.app')
 
 @section('content')
 
@@ -32,19 +32,19 @@
                         <!-- Start Product Single Images -->
                         <div class="product-single-photo slider thumbnails-single">
                             <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-800x800.jpg" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
+                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
                             </div>
                             <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-800x800.jpg" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
+                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
                             </div>
                             <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-800x800.jpg" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
+                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
                             </div>
                             <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-800x800.jpg" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
+                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
                             </div>
                             <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-800x800.jpg" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
+                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
                             </div>
                         </div>
                         <!-- End Product Single Images -->

@@ -49,6 +49,19 @@
                 </li>
                 <li>
                     <a href="{{ route ('dashboard.order.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Orders</span></a>
+                    <a href="{{ route ('dashboard.coupons.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Coupons</span></a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Coupons</span></a>
+                    <ul>
+                        <li>
+                            <a href="{{ route ('dashboard.coupons.index') }}">All Coupons</a>
+                        </li>
+                        <li>
+                            <a href="{{ route ('dashboard.coupons.create') }}">Add New Coupon</a>
+                        </li>
+                        
+                    </ul>
                 </li>
                 <li>
                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">eCommerce</span></a>

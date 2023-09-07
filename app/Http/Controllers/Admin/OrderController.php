@@ -18,7 +18,7 @@ class OrderController extends Controller
     } // end of create 
 
     public function store () {
-        ///
+        //
     } // End of store 
 
     public function edit (Order $order) {

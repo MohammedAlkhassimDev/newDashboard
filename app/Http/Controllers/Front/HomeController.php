@@ -13,10 +13,11 @@ class HomeController extends Controller
 {
     public function home(){
         $banners = Banner::get();
-        $products = Product::get();
+        $products = Product::where('status', 'active') -> get();
+        // dd($products);
         $categories = Category::get();
         $brands = Brand::get();
-        return view('front.pages.home' , compact('banners' , 'products' , 'categories' , 'brands') ,);
+        return view('front.pages.home' , compact('banners' , 'products' , 'categories' , 'brands'));
     }
 
     public function shop(){

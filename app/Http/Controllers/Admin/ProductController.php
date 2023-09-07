@@ -123,4 +123,4 @@ class ProductController extends Controller
 
         return redirect()->route('dashboard.products.index');
     } // End of destroy
-}
+} // End of controller 

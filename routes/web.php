@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -28,10 +29,16 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
-Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');
+Route::get('/product-detail/{id}', [HomeController::class, 'detail'])->name('product.detail');
 Route::get('/compare', [HomeController::class, 'compare'])->name('compare');
-Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+
+// Cart functionality
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::post('/cart/store', [CartController::class, 'cartStore'])->name('cart.store');
+Route::post('/cart/delete', [CartController::class, 'cartDelete'])->name('cart.delete');
+
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
     });

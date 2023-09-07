@@ -29,6 +29,10 @@ class Product extends Model implements Translatable
 
     } // End of get all products
 
+    public static function getProductByCart ($id) {
+        return self::where('id', $id) -> get() -> toArray();
+    } // End of get product by cart
+
     public function images () {
         return $this->hasMany(ProductImages::class, 'product_id');
     } // End of product images
