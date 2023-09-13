@@ -1,11 +1,11 @@
-@extends('front.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
 
 <div class="breadcrumbs text-center">
     <div class="container">
-        <h1>Shopping Cart Style1</h1>
+        <h1>Shopping Cart</h1>
         <ul class="breadcrumb bg-transparent m-0 p-0 justify-content-center">
             <li class="breadcrumb-item"><a href="index.html" title="Home">Home</a></li>
             <li class="breadcrumb-item active">Cart</li>
@@ -21,26 +21,22 @@
             <!-- Start Cart Details -->
             <div class="cart-view-table col-12 col-sm-12 col-lg-9 sidebar-left">
                 <!-- Start Cart Order Notification -->
-                <div class="cart-notification d-flex align-items-center alert alert-success alert-dismissible">
-                    <i class="ti-check mr-2"></i>
-                    Congratulations! You've got free shipping!
-                    <a class="close" data-dismiss="alert"><i class="ti-close"></i></a>
-                </div>
+               
                 <!-- End Cart Order Notification -->
 
                 <!-- Start Cart Table -->
                 <div class="table-content table-responsive " id="cart-ajax">
-                    @include('front.layouts.cart')
+                    @include('front.cart.cart')
                 </div>
                 <!-- End Cart Table -->
                 <!-- Start Cart Action Button -->
                 <div class="cart-table-action clearfix">
                     <a href="#" class="btn btn-secondary pull-left">Update Cart</a>
-                    <a href="#" class="btn btn-secondary pull-right">Continue Shopping</a>
+                    <a href="{{ route('shop')}}" class="btn btn-secondary pull-right">Continue Shopping</a>
                 </div>
                 <!-- End Cart Action Button -->
                 <!-- Start Cart Shipping Estimates -->
-                <div class="cart-get-shipping">
+                {{--  <div class="cart-get-shipping">
                     <h3>Get Shipping Estimates</h3>
                     <form action="#" class="row needs-validation" novalidate>
                         <div class="form-group col-12 col-sm-4 col-md-4">
@@ -366,7 +362,7 @@
                             <button type="submit" class="btn btn-secondary">Calculating Shipping</button>
                         </div>
                     </form>
-                </div>
+                </div>  --}}
                 <!-- End Cart Shipping Estimates -->
             </div>
             <!-- End Cart Details -->
@@ -405,17 +401,17 @@
                     <!-- End Cart Agree Checkmark -->
                     <!-- Start Cart Checkout Button -->
                     <div class="cart-checkout">
-                        <button type="submit" class="btn btn-primary btn-block">Proceed to checkout</button>
+                        <a href="{{ route('checkout')}}" class="btn btn-primary btn-block">Proceed to checkout</a>
                     </div>
                     <!-- End Cart Checkout Button -->
                 </form>
                 <!-- Start Checkout Card -->
                 <div class="checkout-card">
                     <div class="ssl-safe clearfix mb-3">
-                        <img class="img-fluid blur-up lazyload float-left" src="assets/images/others/ssl-certificate.png" alt="image" title="Secure SSL certificate" />
-                        <img class="img-fluid blur-up lazyload float-left" src="assets/images/others/safe-checkout.png" alt="image" title="Granted safe checkout" />
+                        <img class="img-fluid blur-up lazyload float-left" src="{{ asset('assets/front-assets/images/others/ssl-certificate.png')}}" alt="image" title="Secure SSL certificate" />
+                        <img class="img-fluid blur-up lazyload float-left" src="{{ asset('assets/front-assets/images/others/safe-checkout.png')}}" alt="image" title="Granted safe checkout" />
                     </div>
-                    <img class="img-fluid blur-up lazyload" src="assets/images/icons/checkout-card.png" alt="image" title="Checkout Card" />
+                    <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/images/icons/checkout-card.png')}}" alt="image" title="Checkout Card" />
                 </div>
                 <!-- End Checkout Card -->
             </div>

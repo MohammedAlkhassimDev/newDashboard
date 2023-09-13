@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
         if ($request->has('image')) {
             // upload photo
-            $request_data['photo'] = $this->UploadSinglePhoto($request -> image , '/media');
+            $request_data['photo'] = $this->UploadSinglePhoto($request -> image , '/media/categories/');
         }
 
         $slug = Str::slug($request->en['title']);
@@ -107,7 +107,7 @@ class CategoryController extends Controller
 
         if ($request->has('image')) {
 
-            $request_data['photo'] = $this->UploadSinglePhoto($request -> image, '/media');
+            $request_data['photo'] = $this->UploadSinglePhoto($request -> image, '/media/categories/');
         } // end upload image
 
         // $slug = Str::slug($request->en['title']);

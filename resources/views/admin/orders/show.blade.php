@@ -105,7 +105,7 @@
 
 <!-- xxx -->
 <div class="card">
-   
+
     <div class="card-body table-responsive">
         @if($order)
         <section class="confirmation_part section_padding">
@@ -117,7 +117,7 @@
                             <table class="table">
                                 <tr class="">
                                     <td>Order Number</td>
-                                    <td> : {{$order->order_number}}</td>
+                                    <td> : {{$order->id}}</td>
                                 </tr>
                                 <tr>
                                     <td>Order Date</td>
@@ -190,8 +190,46 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
+
+
+        <div class="row" style="background-color: white;">
+
+            <div class="col-lg-6 col-lx-4">
+                <div class="order-info">
+                    <h4 class="text-center pb-4">ORDER Details</h4>
+                    <table class="table table-vcenter table-condensed table-bordered">
+                       <thead>
+                        <tr>
+                             <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                     @foreach ($order->orderLists as $detail )
+                     <tr>
+                        <td> {{$detail->product->title}}</td>
+
+
+                        <td class="text-center"><img src="{{ asset ('/media/products/'. $detail->product -> photo) }}" alt="avatar" width="50" ></td>
+
+                        <td> {{$detail->product->price}}</td>
+
+
+                        <td> {{$detail->quantity}}</td>
+                    </tr>
+                     @endforeach
+
+                    </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
         @endif
 
     </div>

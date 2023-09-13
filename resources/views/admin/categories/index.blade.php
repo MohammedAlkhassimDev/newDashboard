@@ -20,7 +20,7 @@
 <div class="block full">
 
     <div class=" f-right">
-        <div class="text-right py-2" style="margin-bottom: 7px;">
+        <div class="py-2 text-right" style="margin-bottom: 7px;">
 
             <a class="btn btn-primary " href=" {{ route ('dashboard.categories.create') }}">Add New </a>
 
@@ -47,7 +47,7 @@
                 @forelse ($categories as $category)
                 <tr>
                     <td class="text-center"><?= $i += 1 ?></td>
-                    <td class="text-center"><img src="{{ asset ('/media/'. $category -> photo) }}" alt="avatar" width="50" ></td>
+                    <td class="text-center"><img src="{{ asset ('/media/categories/'. $category -> photo) }}" alt="avatar" width="50" ></td>
                     <td class="text-center">{{ $category -> title }}</td>
                     <td class="text-center">
                         <div class="btn-group">
@@ -77,7 +77,7 @@
                 <tr>
                     <td><h5>No records</h5> </td>
                 </tr>
-                
+
 
                 @endforelse
 

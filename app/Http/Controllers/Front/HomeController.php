@@ -21,14 +21,28 @@ class HomeController extends Controller
     }
 
     public function shop(){
-        return view('front.pages.shop');
+            $categories = Category::get();
+
+        $products = Product::get();
+
+        return view('front.pages.shop' , compact('categories' , 'products'));
     }
 
+
+    public function shopWithOneCategory($id){
+
+    $products = Product::where('cat_id' , $id)->get();
+
+    return view('front.pages.shop-category' , compact( 'products'));
+}
 
     public function contact(){
         return view('front.pages.contact');
     }
 
+    public function thank(){
+        return view('front.pages.thank');
+    }
 
     public function about(){
         return view('front.pages.about');
@@ -44,8 +58,9 @@ class HomeController extends Controller
         return view('front.pages.checkout');
     }
 
-    public function detail(){
-        return view('front.pages.detail');
+    public function detail($slug){
+        $product = Product::where('slug' , $slug)->get();
+        return view('front.pages.detail' , compact('product'));
     }
 
     public function compare(){

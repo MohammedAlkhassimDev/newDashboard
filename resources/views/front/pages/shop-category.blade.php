@@ -21,7 +21,7 @@
             <!-- Start Product Filter -->
             <div class="col-12 col-sm-12 col-lg-3 sidebar sidebar-left">
                 <!-- Start YMM Search Box -->
-               
+
                 <!-- End YMM Search Box -->
 
                 <!-- Start Shop By -->
@@ -29,14 +29,7 @@
                     <h3 class="block-title shopby">SHOP BY</h3>
                     <div class="block-content">
                         <!-- Start Categories -->
-                        <div class="block-item categories">
-                            <h4 class="sub-title">Categories</h4>
-                            <ul class="block-details list sidebar-collections">
-                                @foreach( $categories as $category)      
-                                <li><a href="#">{{$category->title}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
+                    
                         <!-- End Categories -->
                         <!-- Start Price -->
                         <div class="block-item price">
@@ -213,10 +206,10 @@
 
                 <!-- Start Products Grid -->
                 <div class="products products-grid">
-                   
+
                     <div class="row row-sp row-eq-height">
 
-                        
+
              @foreach($products as $product)
              <div class="col-sp col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
                  <div class="product-item">

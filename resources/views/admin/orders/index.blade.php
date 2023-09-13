@@ -51,13 +51,13 @@
                 @forelse ($orders as $order)
                 <tr>
                     <td class="text-center"><?= $i += 1 ?></td>
-                    <td class="text-center">{{ $order -> order_number }}</td>
-                    <td class="text-center">{{ $order -> firstname }} {{ $order -> lastname }}</td>
+                    <td class="text-center">{{ $order -> id }}</td>
+                    <td class="text-center">{{ $order -> first_name }} {{ $order -> last_name }}</td>
                     <td class="text-center">{{ $order -> email }}</td>
                     <td class="text-center">{{ $order -> quantity }}</td>
                     <td class="text-center">${{number_format($order->total_amount,2)}}</td>
                     <td class="text-center">
-                   
+
                         @if($order->status=='new')
                           <span class="badge badge-primary">{{$order->status}}</span>
                         @elseif($order->status=='process')
@@ -68,12 +68,12 @@
                           <span class="badge badge-danger">{{$order->status}}</span>
                         @endif
                     </td>
-                  
+
                     <td class="text-center">
                         <div class="btn-group">
 
                             <a href="{{ route('dashboard.order.show', $order -> id) }}" data-toggle="tooltip" title="show" class="btn btn-xs btn-info mr-2"><i class="fa fa-eye"></i></a>
-                          
+
                             <a href="{{ route('dashboard.order.edit', $order -> id) }}" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default "><i class="fa fa-pencil"></i></a>
 
                             <!-- <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default " disabled><i class="fa fa-pencil"></i></a> -->
@@ -99,7 +99,7 @@
                 <tr>
                     <td><h5>No records</h5> </td>
                 </tr>
-                
+
 
                 @endforelse
 

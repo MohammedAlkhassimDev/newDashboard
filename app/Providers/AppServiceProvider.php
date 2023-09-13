@@ -21,14 +21,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $setting  = Setting::checkSetting();
+        // $setting  = Setting::checkSetting();
 
-        $categories = Category::where ('status', 'active') -> where ('is_parent', 1) -> get();
+        // $categories = Category::where ('status', 'active') -> where ('is_parent', 1) -> get();
 
-        view() -> share([
-            'setting' => $setting,
-            'categories' => $categories
-        ]);
-        
+        // view() -> share([
+        //     'setting' => $setting,
+        //     'categories' => $categories
+        // ]);
+
     } // End of boot
 }

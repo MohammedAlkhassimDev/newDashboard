@@ -49,63 +49,11 @@
                 </li>
                 <li>
                     <a href="{{ route ('dashboard.order.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Orders</span></a>
+                </li>
+                <li>
                     <a href="{{ route ('dashboard.coupons.index') }}" class=""><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Coupons</span></a>
+
                 </li>
-                <li>
-                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Coupons</span></a>
-                    <ul>
-                        <li>
-                            <a href="{{ route ('dashboard.coupons.index') }}">All Coupons</a>
-                        </li>
-                        <li>
-                            <a href="{{ route ('dashboard.coupons.create') }}">Add New Coupon</a>
-                        </li>
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">eCommerce</span></a>
-                    <ul>
-                        <li>
-                            <a href="page_ecom_dashboard.html">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="page_ecom_orders.html">Orders</a>
-                        </li>
-                        <li>
-                            <a href="page_ecom_order_view.html">Order View</a>
-                        </li>
-                        <li>
-                            <a href="page_ecom_products.html">Products</a>
-                        </li>
-                        <li>
-                            <a href="page_ecom_product_edit.html">Product Edit</a>
-                        </li>
-                        <li>
-                            <a href="page_ecom_customer_view.html">Customer View</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-header">
-                    <span class="clearfix sidebar-header-options"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Create the most amazing pages with the widget kit!"><i class="gi gi-lightbulb"></i></a></span>
-                    <span class="sidebar-header-title">Widget Kit</span>
-                </li>
-                <li>
-                    <a href="page_widgets_stats.html"><i class="gi gi-charts sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Statistics</span></a>
-                </li>
-                <li>
-                    <a href="page_widgets_social.html"><i class="gi gi-share_alt sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Social</span></a>
-                </li>
-                <li>
-                    <a href="page_widgets_media.html"><i class="gi gi-film sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Media</span></a>
-                </li>
-                <li>
-                    <a href="{{ route ('dashboard.setting') }}"><i class="gi gi-link sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Settings</span></a>
-                </li>
-                <!-- <li class="sidebar-header">
-                    <span class="clearfix sidebar-header-options"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
-                    <span class="sidebar-header-title">Design Kit</span>
-                </li> -->
 
 
             </ul>

@@ -13,6 +13,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
 
+    @notifyCss
+
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
     <link rel="shortcut icon" href="{{ asset('assets/admin-assets/img/favicon.png')}}">
@@ -49,7 +51,6 @@
             display: none;
         }
     </style>
-    @notifyCss
 </head>
 
 <body>

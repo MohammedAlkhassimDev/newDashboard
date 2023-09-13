@@ -1,4 +1,4 @@
-@extends('front.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -31,47 +31,49 @@
 
                         <!-- Start Product Single Images -->
                         <div class="product-single-photo slider thumbnails-single">
+
                             <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
+                                <img class="img-fluid blur-up lazyload" style="height: 200px;  display: block; margin-left: auto; margin-right: auto;" src="{{ asset('media/products/'. $product[0]->photo )}}" data-src="{{ asset('media/products/'. $product[0]->photo )}}" alt="image" title="image" />
                             </div>
+
+                            @foreach ( $product[0]->images as $image )
+
                             <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
+                                <img class="img-fluid blur-up lazyload" style="height: 200px;  display: block; margin-left: auto; margin-right: auto;" src="{{ asset('media/products/'. $image->url )}}" data-src="{{ asset('media/products/'. $image->url )}}" alt="image" title="image" />
                             </div>
-                            <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
-                            </div>
-                            <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
-                            </div>
-                            <div class="single-item zoom product-gallery-image">
-                                <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/assets/images/products/product-detail-800x800.jpg') }}" data-src="assets/images/products/product-detail-800x800.jpg" alt="image" title="image" />
-                            </div>
+
+                            @endforeach
+
                         </div>
                         <!-- End Product Single Images -->
 
                         <!-- Start Product Action -->
                         <div class="product-gallery-actions">
-                            <a href="#open-video-popup" class="action-btn video-popup open-video-popup"><i class="ti-control-play"></i></a>
+                            {{--  <a href="#open-video-popup" class="action-btn video-popup open-video-popup"><i class="ti-control-play"></i></a>  --}}
                             <a id="lightgallery-btn" class="action-btn gallery-popup lightgallery-btn"><i class="ti-zoom-in"></i></a>
                         </div>
                         <!-- End Product Action -->
 
                         <!-- Start Product Details Video Popup -->
-                        <div id="open-video-popup" class="youtube-video-popup magnific-popup mfp-hide">
+                        {{--  <div id="open-video-popup" class="youtube-video-popup magnific-popup mfp-hide">
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe class="embed-responsive-item" src="about:blank" allowfullscreen=""></iframe>
                             </div>
-                        </div>
+                        </div>  --}}
                         <!-- End Product Details Video Popup -->
                     </div>
 
                     <!-- Start Product Thumb Images -->
+
                     <div class="product-thumb slider thumbnail-items">
-                        <div class="thumb-item"><img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-125x125.jpg" data-src="assets/images/products/product-detail-125x125.jpg" alt="image" title="image" /></div>
-                        <div class="thumb-item"><img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-125x125.jpg" data-src="assets/images/products/product-detail-125x125.jpg" alt="image" title="image" /></div>
-                        <div class="thumb-item"><img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-125x125.jpg" data-src="assets/images/products/product-detail-125x125.jpg" alt="image" title="image" /></div>
-                        <div class="thumb-item"><img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-125x125.jpg" data-src="assets/images/products/product-detail-125x125.jpg" alt="image" title="image" /></div>
-                        <div class="thumb-item"><img class="img-fluid blur-up lazyload" src="assets/images/products/product-detail-125x125.jpg" data-src="assets/images/products/product-detail-125x125.jpg" alt="image" title="image" /></div>
+
+
+                        @foreach ( $product[0]->images as $image )
+
+                        <div class="thumb-item"><img class="img-fluid blur-up lazyload"  src="{{ asset('media/products/'. $image->url )}}" data-src="{{ asset('media/products/'. $image->url )}}" alt="image" title="image" /></div>
+                        @endforeach
+
+                        
                     </div>
                     <!-- End Product Thumb Images -->
                 </div>
@@ -83,7 +85,7 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="info-area d-table clearfix">
                                 <div class="info-icon d-table-cell align-middle">
-                                    <img class="img-fluid blur-up lazyload" src="assets/images/icons/free-shipping.png" data-src="assets/images/icons/free-shipping.png" alt="image" title="image" />
+                                    <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/images/icons/free-shipping.png')}}" data-src="{{ asset('assets/front-assets/images/icons/free-shipping.png')}}" alt="image" title="image" />
                                 </div>
                                 <div class="info-details d-table-cell align-middle">
                                     <h5>Free &amp; Fast Shipping</h5>
@@ -94,11 +96,11 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="info-area d-table">
                                 <div class="info-icon d-table-cell align-middle">
-                                    <img class="img-fluid blur-up lazyload" src="assets/images/icons/safe-payment.png" data-src="assets/images/icons/safe-payment.png" alt="image" title="image" />
+                                    <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/images/icons/safe-payment.png')}}" data-src="{{ asset('assets/front-assets/images/icons/safe-payment.png')}}" alt="image" title="image" />
                                 </div>
                                 <div class="info-details d-table-cell align-middle">
                                     <h5>Safe Payment</h5>
-                                    <span>Pay with the world's most payment methods</span>
+                                    <span>Pay with the worlds most payment methods</span>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +109,7 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="info-area d-table">
                                 <div class="info-icon d-table-cell align-middle">
-                                    <img class="img-fluid blur-up lazyload" src="assets/images/icons/return-exchange.png" data-src="assets/images/icons/return-exchange.png" alt="image" title="image" />
+                                    <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/images/icons/return-exchange.png')}}" data-src="{{ asset('assets/front-assets/images/icons/return-exchange.png')}}" alt="image" title="image" />
                                 </div>
                                 <div class="info-details d-table-cell align-middle">
                                     <h5>Return &amp; Exchange</h5>
@@ -118,7 +120,7 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="info-area d-table">
                                 <div class="info-icon d-table-cell align-middle">
-                                    <img class="img-fluid blur-up lazyload" src="assets/images/icons/support-24.png" data-src="assets/images/icons/support-24.png" alt="image" title="image" />
+                                    <img class="img-fluid blur-up lazyload" src="{{ asset('assets/front-assets/images/icons/support-24.png')}}" data-src="{{ asset('assets/front-assets/images/icons/support-24.png')}}" alt="image" title="image" />
                                 </div>
                                 <div class="info-details d-table-cell align-middle">
                                     <h5>Support 24/7</h5>
@@ -160,7 +162,7 @@
 
                 <!-- Start Product Price -->
                 <ul class="d-sm-flex flex-sm-row align-items-sm-center product-price-info">
-                    <li class="product-price m-0"><span class="compare-price">$499.00</span><span class="sale-price">$399.00</span></li>
+                    <li class="product-price m-0"><span class="compare-price">$499.00</span><span class="sale-price">${{ $product[0]->price }}</span></li>
                     <li class="save-price">You Save <span class="save-count">$100.00 (10%)</span></li>
                 </ul>
                 <!-- End Product Price -->
@@ -170,12 +172,8 @@
                 <!-- End Product Sold In Last -->
 
                 <!-- Start Product List Info -->
-                <ul class="d-flex flex-column pro-lists">
-                    <li><i class="fa fa-check mr-2" aria-hidden="true"></i>Lorem ipsum dolor sit amet, consectetur elit.</li>
-                    <li><i class="fa fa-check mr-2" aria-hidden="true"></i>Maecenas vehicula lorem et facilisis eleifend.</li>
-                    <li><i class="fa fa-check mr-2" aria-hidden="true"></i>Quisque mattis augue quis risus euismod pharetra.</li>
-                    <li><i class="fa fa-check mr-2" aria-hidden="true"></i>Curabitur bibendum massa vitae risus lacinia rutrum.</li>
-                </ul>
+                 {{ $product[0]->summary}}
+                 <br><br>
                 <!-- End Product List Info -->
 
                 <!-- Start Product Progress Bar -->
@@ -188,10 +186,10 @@
                 <!-- End Product Progress Bar -->
 
                 <!-- Start Product Time Counter -->
-                <div class="product-counter-text clearfix">
+                {{--  <div class="product-counter-text clearfix">
                     <h4>Hurry up! Limited time Offer</h4>
                     <div class="product-counter clearfix" data-countdown="2024/10/01"></div>
-                </div>
+                </div>  --}}
                 <!-- End Product Time Counter -->
 
                 <!-- Start Product Color -->
@@ -222,19 +220,21 @@
 
                 <!-- Start Cart Box -->
                 <div class="addToBox">
-                    <form action="#" class="d-sm-flex flex-sm-row">
+                    <form action="{{ route('cart.store' )}}" method="POST" class="d-sm-flex flex-sm-row">
+                        @csrf
+                        <input type="hidden" value="{{$product[0]->id}}" name="product_id" />
                         <!-- Start Product Quantity -->
                         <div class="product-form-item product-quantity">
                             <div class="qty-box">
                                 <button type="button" class="qtyminus button" value=""><i class="fa fa-minus"></i></button>
-                                <input type="text" name='quantity' value='1' class="qty-input" />
+                                <input type="text" name='product_qty' value='1' class="qty-input" />
                                 <button type="button" class="qtyplus button" value=""><i class="fa fa-plus"></i></button>
                             </div>
                         </div>
                         <!-- End Product Quantity -->
                         <!-- Start Product Add Cart -->
                         <div class="product-form-item product-submit btn-block">
-                            <a href="cart.html" class="btn btn-primary btn-block product-btn-cart add-cart">Add to Cart</a>
+                            <button class="btn btn-primary btn-block product-btn-cart add-cart" type="submit">Add to Cart</button>
                         </div>
                         <!-- End Product Add Cart -->
                         <!-- Start Product Buy Now -->
@@ -379,7 +379,7 @@
                 <div class="checkout-safe">
                     <fieldset>
                         <legend>Guaranteed Safe Checkout</legend>
-                        <img class="img-fluid" src="assets/images/icons/checkout-icon.png" alt="Guaranteed Safe Checkout" title="Guaranteed Safe Checkout" />
+                        <img class="img-fluid" src="{{ asset('assets/front-assets/images/icons/checkout-icon.png" alt="Guaranteed Safe Checkout" title="Guaranteed Safe Checkout" />
                     </fieldset>
                 </div>
                 <!-- Start Product Checkout Info -->
@@ -648,7 +648,7 @@
 </div>
 <!-- End Product Detail Tabs -->
 
-<!-- Start Related Product -->
+<!-- Start Related Product 
 <div class="related-product sections-spacing">
     <div class="container">
         <div class="section-header">
@@ -845,9 +845,10 @@
         </div>
     </div>
 </div>
+-->
 <!-- End Related Product -->
 
-<!-- Start Recently Viewed Product -->
+<!-- Start Recently Viewed Product
 <div class="recently-viewed-product sections-spacing">
     <div class="container">
         <div class="section-header">
@@ -998,5 +999,6 @@
         </div>
     </div>
 </div>
+-->
 
 @endsection

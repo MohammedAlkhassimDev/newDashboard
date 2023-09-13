@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number')->unique();
+            //$table->string('order_number')->unique();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->float('sub_total');
+            //$table->float('sub_total');
             // $table->unsignedBigInteger('shipping_id')->nullable();
             $table->float('coupon')->nullable();
             $table->float('total_amount');
@@ -31,8 +31,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('country');
             $table->string('post_code')->nullable();
-            $table->text('address1');
-            $table->text('address2')->nullable();
+            $table->text('address');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

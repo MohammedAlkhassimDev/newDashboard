@@ -12,8 +12,9 @@ class CartController extends Controller
 {
 
     public function cart () {
+    
         return view ('front.pages.cart');
-    } // End of cart 
+    } // End of cart
 
     public function cartStore(Request $request)
     {
@@ -50,7 +51,7 @@ class CartController extends Controller
         }
 
         // \notify()->success('Item is added succussfully');
-        return json_encode($response);
+        return redirect()->route('cart');
 
         // $price = $product[];
 
@@ -81,8 +82,8 @@ class CartController extends Controller
             $response['header'] = $header;
         }
 
-        return json_encode($response);
-    } // End of cart delete 
+        return redirect()->back();
+    } // End of cart delete
 
 
-} // End of Cart Controller 
+} // End of Cart Controller
