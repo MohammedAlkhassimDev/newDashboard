@@ -10,12 +10,15 @@ use App\Models\OrderList;
 use Gloudemans\Shoppingcart\Facades\Cart as CartShopping;
 use Mail;
 use App\Mail\OrderMail;
-
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function order(Request $request){
-        Mail::to('obeysaad117@gmail.com')->send(new OrderMail());
+      //  Mail::to('obeysaad117@gmail.com')->send(new OrderMail());
+
+       $request->request->add(['user_id' => Auth::id()]); //add request
+
 
         $request_data = $request -> except(['_token' , 'coupon']);
 
@@ -23,6 +26,8 @@ class OrderController extends Controller
         $request_data['total_amount'] = CartShopping::instance('shopping')->total();
 
         $request_data['quantity'] = CartShopping::instance('shopping')->count();
+
+
 
 
         if($request->coupon){

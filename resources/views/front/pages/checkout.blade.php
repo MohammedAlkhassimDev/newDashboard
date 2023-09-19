@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="breadcrumbs text-center">
+<div class="text-center breadcrumbs">
     <div class="container">
         <h1>checkout Style1</h1>
-        <ul class="breadcrumb bg-transparent m-0 p-0 justify-content-center">
+        <ul class="p-0 m-0 bg-transparent breadcrumb justify-content-center">
             <li class="breadcrumb-item"><a href="index.html" title="Home">Home</a></li>
             <li class="breadcrumb-item active">checkout</li>
         </ul>
@@ -19,45 +19,48 @@
 <div class="checkout-content">
     <div class="container">
         <!-- Start Checkout Login -->
-                <div class="card rounded-0 mb-4 mb-md-5 collapse-head customer-login">
-            <div class="card-header rounded-0 border-0">
-                Returning customer? <a class="font-13" data-toggle="collapse" href="#customer-login" aria-expanded="false" aria-controls="customer-login"> Click here to login</a>
+        @guest
+        <div class="mb-4 card rounded-0 mb-md-5 collapse-head customer-login">
+            <div class="border-0 card-header rounded-0">
+                Returning customer? <a class="font-13"  href="{{ route('login')  }}" > Click here to login</a>
             </div>
-            <div class="collapse" id="customer-login">
+            {{--  <div class="collapse" id="customer-login">
                 <div class="card-body rounded-0">
                     <form action="#" class="no-gutters login-form needs-validation" novalidate>
-                        <div class="form-group mb-4 col-12 col-sm-4 col-md-4">
+                        <div class="mb-4 form-group col-12 col-sm-4 col-md-4">
                             <label>Email Address *</label>
                             <input type="email" class="form-control" placeholder="" required />
                             <div class="invalid-feedback">Please enter your email.</div>
                         </div>
-                        <div class="form-group mb-4 col-sm-4 col-md-4">
+                        <div class="mb-4 form-group col-sm-4 col-md-4">
                             <label>Password *</label>
                             <input type="password" class="form-control" placeholder="" required />
                             <div class="invalid-feedback">Please enter your password.</div>
                         </div>
-                        <div class="form-group mb-4 col-sm-4 col-md-4">
+                        <div class="mb-4 form-group col-sm-4 col-md-4">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="dropdownCheck" required />
-                                <label class="form-check-label ml-3" for="dropdownCheck">Remeber Me!</label>
+                                <label class="ml-3 form-check-label" for="dropdownCheck">Remeber Me!</label>
                             </div>
                         </div>
-                        <div class="button-action clearfix text-left">
+                        <div class="clearfix text-left button-action">
                             <div class="login-forget pull-left">
                                 <button type="submit" class="btn btn-primary">Sign In</button>
-                                <a class="forgot-password ml-4" href="forgot-password.html">Forgot your password?</a>
+                                <a class="ml-4 forgot-password" href="forgot-password.html">Forgot your password?</a>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
+            </div>  --}}
         </div>
+        @endguest
         <!-- End Checkout Login -->
 
         <!-- Start Coupon Code -->
 
-        <div class="card rounded-0 mb-5 collapse-head coupon-code">
-            <div class="card-header rounded-0 border-0">
+        @auth
+        <div class="mb-5 card rounded-0 collapse-head coupon-code">
+            <div class="border-0 card-header rounded-0">
                 Have A Coupon? <a class="font-13" data-toggle="collapse" href="#coupon-code" aria-expanded="false" aria-controls="coupon-code"> Click Here To Enter Your Code</a>
             </div>
             <div class="collapse" id="coupon-code">
@@ -82,39 +85,35 @@
         <form method="POST" action={{ route('order.checkout')}}>
             @csrf
         <div class="row">
-
-            <input type="hidden" id="coupon-checkout" name="coupon" />
-
-
-
+             <input type="hidden" id="coupon-checkout" name="coupon" />
             <!-- Start Checkout Form -->
-            <div class="checkout-form col-12 col-sm-12 col-lg-8 mb-5 mb-lg-0 sidebar-left">
+            <div class="mb-5 checkout-form col-12 col-sm-12 col-lg-8 mb-lg-0 sidebar-left">
                 <!-- Start Shipping Form -->
 
                     <div class="card rounded-0">
                         <div class="card-header rounded-0">Shipping Address</div>
                         <div class="card-body">
-                            <div class="row form-group mb-0">
-                                <div class="col-12 col-sm-6 col-md-6 mb-4">
+                            <div class="mb-0 row form-group">
+                                <div class="mb-4 col-12 col-sm-6 col-md-6">
                                     <label>First Name: *</label>
                                     <input type="text" name="first_name" class="form-control" placeholder="" required />
                                     <div class="invalid-feedback">Please enter your first name.</div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-md-6 mb-4">
+                                <div class="mb-4 col-12 col-sm-6 col-md-6">
                                     <label>Last Name: *</label>
                                     <input type="text" name="last_name" class="form-control" placeholder="" required />
                                     <div class="invalid-feedback">Please enter your last name.</div>
                                 </div>
                             </div>
-                            <div class="row form-group mb-0">
-                                <div class="col-12 col-sm-12 col-md-12 mb-4">
+                            <div class="mb-0 row form-group">
+                                <div class="mb-4 col-12 col-sm-12 col-md-12">
                                     <label>Address: *</label>
                                     <textarea class="form-control" name="address" rows="3" placeholder="" required></textarea>
                                     <div class="invalid-feedback">Please enter your address.</div>
                                 </div>
                             </div>
-                            <div class="row form-group mb-0">
-                                <div class="col-12 col-sm-6 col-md-6 mb-4">
+                            <div class="mb-0 row form-group">
+                                <div class="mb-4 col-12 col-sm-6 col-md-6">
                                     <label>Country: *</label>
                                     <select class="select2 js-country form-control" name="country" required>
                                         <option value="" disabled selected>Select country</option>
@@ -372,7 +371,7 @@
                                 </div>
 
 
-                                <div class="col-12 col-sm-6 col-md-6 mb-4">
+                                <div class="mb-4 col-12 col-sm-6 col-md-6">
                                     <label>Zip / Postal Code: *</label>
                                     <input type="text" name="post_code" class="form-control" placeholder="" required />
                                     <div class="invalid-feedback">Please enter your zip/postal code.</div>
@@ -380,13 +379,13 @@
 
                             </div>
 
-                            <div class="row form-group mb-0">
-                                <div class="col-12 col-sm-6 col-md-6 mb-4">
+                            <div class="mb-0 row form-group">
+                                <div class="mb-4 col-12 col-sm-6 col-md-6">
                                     <label>Phone Number: *</label>
                                     <input type="text" name="phone" class="form-control" placeholder="" required />
                                     <div class="invalid-feedback">Please enter your phone number.</div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-md-6 mb-4">
+                                <div class="mb-4 col-12 col-sm-6 col-md-6">
                                     <label>Email Address: *</label>
                                     <input type="email" name="email" class="form-control" placeholder="" required />
                                     <div class="invalid-feedback">Please enter your email.</div>
@@ -397,7 +396,7 @@
 
                             <!-- End Billing Form -->
 
-                            <div class="row form-group mb-0">
+                            <div class="mb-0 row form-group">
                                 <div class="col-12 col-sm-12 col-md-12">
                                     <label>Order Notes:</label>
                                     <textarea class="form-control" rows="3" name="note"></textarea>
@@ -419,34 +418,34 @@
                 <!-- Start Payment Method -->
                 <div class="payment-method accordion" id="payment-method">
                     <!-- Start Cash on delivery -->
-                    <div class="card border-0 rounded-0 mb-3">
-                        <div class="card-header border-0 rounded-0 p-0 bg-white" id="payment-One1">
+                    <div class="mb-3 border-0 card rounded-0">
+                        <div class="p-0 bg-white border-0 card-header rounded-0" id="payment-One1">
                             <div class="form-check" role="tablist" data-toggle="collapse" data-target="#paymentOne" aria-expanded="true" aria-controls="paymentOne">
                                 <input class="form-check-input" type="radio" name="payment_method" id="paymentRadio1" checked value="cod" />
-                                <label class="form-check-label w-100 ml-3" for="paymentRadio1">Cash on delivery</label>
+                                <label class="ml-3 form-check-label w-100" for="paymentRadio1">Cash on delivery</label>
                             </div>
 
                             <div class="form-check" role="tablist" data-toggle="collapse" data-target="#paymentOne" aria-expanded="true" aria-controls="paymentOne">
                                 <input class="form-check-input" type="radio" name="payment_method" id="paymentRadio1" checked value="paypal" />
-                                <label class="form-check-label w-100 ml-3" for="paymentRadio1">Bank</label>
+                                <label class="ml-3 form-check-label w-100" for="paymentRadio1">Bank</label>
                             </div>
                         </div>
                         {{--  <div id="paymentOne" class="collapse show" aria-labelledby="paymentOne" data-parent="#payment-method">
-                            <div class="card-body p-0 text-muted font-13">Pay with cash upon delivery.</div>
+                            <div class="p-0 card-body text-muted font-13">Pay with cash upon delivery.</div>
                         </div>  --}}
                     </div>
                     <!-- End Cash on delivery -->
 
                     <!-- Start Bank payments -->
-                    {{--  <div class="card border-0 rounded-0 mb-3">
-                        <div class="card-header border-0 rounded-0 bg-white p-0" id="payment-One2">
+                    {{--  <div class="mb-3 border-0 card rounded-0">
+                        <div class="p-0 bg-white border-0 card-header rounded-0" id="payment-One2">
                             <div class="form-check" role="tablist" data-toggle="collapse" data-target="#paymentOne2" aria-expanded="false" aria-controls="paymentOne2">
                                 <input class="form-check-input" type="radio" name="paymentRadio" id="paymentRadio2" />
-                                <label class="form-check-label w-100 ml-3" for="paymentRadio2">Bank payments</label>
+                                <label class="ml-3 form-check-label w-100" for="paymentRadio2">Bank payments</label>
                             </div>
                         </div>
                         <div id="paymentOne2" class="collapse" aria-labelledby="paymentOne2" data-parent="#payment-method">
-                            <div class="card-body p-0">
+                            <div class="p-0 card-body">
                                 <!-- Start Form Card CC Payment -->
                                 <div class="card-outline-secondary">
                                     <div class="alert alert-info font-12">
@@ -454,14 +453,14 @@
                                         <a class="close" data-dismiss="alert" href="#"><i class="ti-close"></i></a>
                                     </div>
                                     <form action="#" autocomplete="off" class="form needs-validation" novalidate>
-                                        <div class="form-group mb-4 mb-sm-3">
+                                        <div class="mb-4 form-group mb-sm-3">
                                             <label>Card Number</label>
                                             <input type="text" autocomplete="off" class="form-control" maxlength="20" required />
                                             <div class="invalid-feedback">Please enter your card number.</div>
                                         </div>
-                                        <div class="form-group row mb-0 mb-sm-3">
+                                        <div class="mb-0 form-group row mb-sm-3">
                                             <label class="col-12 col-sm-12 col-md-12">Card Exp. Date</label>
-                                            <div class="col-12 col-sm-4 col-md-4 mb-4 mb-sm-0">
+                                            <div class="mb-4 col-12 col-sm-4 col-md-4 mb-sm-0">
                                                 <select class="select2 form-control" name="cc-exp-mo" required>
                                                     <option value="" disabled selected>Months</option>
                                                     <option value="01">01</option>
@@ -479,7 +478,7 @@
                                                 </select>
                                                 <div class="invalid-feedback">Please select months.</div>
                                             </div>
-                                            <div class="col-12 col-sm-4 col-md-4 mb-4 mb-sm-0">
+                                            <div class="mb-4 col-12 col-sm-4 col-md-4 mb-sm-0">
                                                 <select class="select2 form-control w-100" name="cc-exp-yr" required>
                                                     <option value="" disabled selected>Year</option>
                                                     <option value="2019">2019</option>
@@ -500,26 +499,26 @@
                                                 </select>
                                                 <div class="invalid-feedback">Please select year.</div>
                                             </div>
-                                            <div class="col-12 col-sm-4 col-md-4 mb-4 mb-sm-0">
+                                            <div class="mb-4 col-12 col-sm-4 col-md-4 mb-sm-0">
                                                 <input type="text" autocomplete="off" class="form-control" maxlength="3" placeholder="CVC" title="Three digits on the back of your card" required />
                                                 <div class="invalid-feedback">Please enter your CVC.</div>
                                             </div>
                                         </div>
-                                        <div class="form-group mb-4 mb-sm-3">
+                                        <div class="mb-4 form-group mb-sm-3">
                                             <label>Amount</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">$</span>
                                                 </div>
-                                                <input type="text" class="form-control text-right" placeholder="32" aria-label="Amount (to the nearest dollar)" required />
+                                                <input type="text" class="text-right form-control" placeholder="32" aria-label="Amount (to the nearest dollar)" required />
                                                 <div class="invalid-feedback">Please enter amount.</div>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">.00</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group row mt-4">
-                                            <div class="col-12 col-sm-6 col-md-6 mb-4 mb-sm-0">
+                                        <div class="mt-4 form-group row">
+                                            <div class="mb-4 col-12 col-sm-6 col-md-6 mb-sm-0">
                                                 <button class="btn btn-secondary btn-lg btn-block" type="reset">Cancel</button>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6">
@@ -541,14 +540,14 @@
 
                 <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
 
-                <div class="form-group mt-5">
+                <div class="mt-5 form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block place-order-btn">Place order</button>
                 </div>
             </div>
             <!-- End Cart Order -->
         </div>
-
-        </form>
+         </form>
+         @endauth
 
         <!-- End Checkout Content -->
     </div>

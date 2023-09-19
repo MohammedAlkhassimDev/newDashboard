@@ -23,6 +23,7 @@ return new class extends Migration
             // $table->string('provider_id')->nullable();
             // $table->enum('status',['active','inactive'])->default('active');
             $table->rememberToken()->nullable();
+            $table->string('google_id')->nullable();
             $table->timestamps();
         });
     }

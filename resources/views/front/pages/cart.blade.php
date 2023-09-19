@@ -21,7 +21,7 @@
             <!-- Start Cart Details -->
             <div class="cart-view-table col-12 col-sm-12 col-lg-9 sidebar-left">
                 <!-- Start Cart Order Notification -->
-               
+
                 <!-- End Cart Order Notification -->
 
                 <!-- Start Cart Table -->
@@ -371,12 +371,7 @@
             <div class="cart-view-summary col-12 col-sm-12 col-lg-3 sidebar sidebar-right">
                 <form action="#" class="checkout-form needs-validation" novalidate>
                     <!-- Start Cart Note -->
-                    <div class="cart-note">
-                        <div class="form-group">
-                            <label for="cart-note">Add a note to your order</label>
-                            <textarea class="form-control" id="cart-note" rows="4" required></textarea>
-                        </div>
-                    </div>
+               
                     <!-- End Cart Note -->
                     <!-- Start Cart Order Summary -->
                     <div class="cart-order-summary">

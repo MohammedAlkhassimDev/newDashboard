@@ -31,25 +31,7 @@
                 </div>
             </li>
             @empty
-            <li class="cart-item d-table">
-                <div class="align-middle pro-img d-table-cell">
-                    <a href="product-details.html">
-                        <img class="img-fluid blur-up lazyload"
-                            src="{{ asset('assets/front-assets/images/products/cart-pro-76x76.jpg')}}"
-                            data-src="{{ asset('assets/front-assets/images/products/cart-pro-76x76.jpg')}}" alt="image"
-                            title="Sociosqu facilisi senectus nisi etiam" />
-                    </a>
-                </div>
-                <div class="float-left pl-4 text-left align-top item-info d-table-cell">
-                    <a href="#">Sociosqu facilisi senectus nisi</a>
-                    <p class="size-color">Red/XL</p>
-                    <p class="price">1 x $299.00</p>
-                </div>
-                <div class="align-middle item-right cart-remove d-table-cell">
-                    <a class="mr-2 edit" href="#"><i class="ti-pencil-alt"></i></a>
-                    <a class="remove" href="#"><i class="ti-close"></i></a>
-                </div>
-            </li>
+          
             @endforelse
 
         </ul>

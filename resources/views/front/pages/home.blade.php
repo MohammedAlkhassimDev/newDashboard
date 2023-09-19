@@ -216,18 +216,7 @@
                             <ul>
 
 
-                                <li class="actions-addcart" data-toggle="tooltip" data-placement="top" title="add to cart"><a href="#open-addtocart-popup-{{ $product->id}}" class="btn open-addtocart-popup" onclick="event.preventDefault(); document.getElementById('open-addtocart-popup-form-{{ $product->id}}').submit();"><i class="icon ti-shopping-cart"></i></a></li>
-
-
-                                <form id="open-addtocart-popup-form-{{ $product->id}}"
-                                    action="{{ route('cart.store')}}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                     <input type="hidden" value="{{$product->id}}" name="product_id"/>
-                                     <input type="hidden" name='product_qty' value="1"/>
-                                </form>
-
-
+                                <li class="actions-addcart" data-toggle="tooltip" data-placement="top" title="add to cart"><a href="#open-addtocart-popup" class="btn open-addtocart-popup" ><i class="icon ti-shopping-cart"></i></a></li>
                                 <li class="actions-quickview" data-toggle="tooltip" data-placement="top" title="quick view"><a href="#open-quickview-popup" class="btn open-quickview-popup"><i class="icon ti-zoom-in"></i></a></li>
                                 <li class="actions-wishlist" data-toggle="tooltip" data-placement="top" title="add to wishlist"><a href="#open-wishlist-popup" class="btn open-wishlist-popup"><i class="icon ti-heart"></i></a></li>
                                 <li class="actions-compare" data-toggle="tooltip" data-placement="top" title="add to compare"><a href="compare.html" class="btn"><i class="icon ti-control-shuffle"></i></a></li>
@@ -251,22 +240,6 @@
                 </div>
             </div>
 
-            <div id="open-addtocart-popup-{{ $product->id}}" class="addtocart-popup magnific-popup mfp-hide">
-
-                <div class="text-center addtocart-inner-content">
-                    <h4>Added to Cart Successfully</h4>
-                    <p class="pro-img"><img class="img-fluid blur-up lazyload" src="{{ asset('media/products/'. $product->photo )}}" data-src="{{ asset('media/products/'. $product->photo )}}" alt="image" title="image" /></p>
-                    <p class="mb-1 modal-prod-name font-15">{{ $product->title}}</p>
-                    <p class="font-13">Quantity: 1</p>
-                    <div class="addcart-total">
-                        There are <b>1</b> items in your cart
-                        <div class="mt-2 cart-total">
-                            Total: <b class="price">${{ $product->price}}</b>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
 
 

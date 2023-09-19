@@ -37,9 +37,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        
+
         // dd ("befor route") ;
-        
+
         Auth::guard('admin')->logout();
 
 
@@ -49,4 +49,6 @@ class AuthenticatedSessionController extends Controller
 
         return redirect() -> route ('dashboard.login');
     }
+
+
 }

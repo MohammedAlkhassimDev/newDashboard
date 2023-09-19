@@ -12,7 +12,7 @@ class CartController extends Controller
 {
 
     public function cart () {
-    
+
         return view ('front.pages.cart');
     } // End of cart
 
@@ -51,7 +51,10 @@ class CartController extends Controller
         }
 
         // \notify()->success('Item is added succussfully');
-        return redirect()->route('cart');
+
+        
+
+
 
         // $price = $product[];
 

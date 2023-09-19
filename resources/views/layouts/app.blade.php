@@ -139,8 +139,33 @@
                             <div class="my-links">
                                 <h4>My Account</h4>
                                 <ul class="p-0 m-0">
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
+
+                                    @auth()
+
+
+
+
+                                    <a href="{{ route('logout') }}"  data-toggle="tooltip"  onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                                        Sign Out
+               </a>
+            </li>
+
+                                                       <form id="logout"
+                                                           action="{{ route('logout') }}" method="POST"
+                                                           style="display: none;">
+                                                           @csrf
+                                                       </form>
+
+                                                       <li><a href="{{ route('profile') }}">My account</a></li>
+
+
+                                    @else
+
+
+                                    <li><a href="{{ route('front.login') }}">Login</a></li>
+                                    <li><a href="{{  route('front.register') }}">Register</a></li>
+@endauth
+
                                     <li><a href="wishlist.html">Wishlist</a></li>
                                     <li><a href="compare.html">Compare</a></li>
                                 </ul>
@@ -328,8 +353,27 @@
     </div>
     <!-- End Cart Drawer -->
 
-    <!-- Start Product Cart Added Popup -->
 
+    <!-- Start Product Cart Added Popup -->
+    <div id="open-addtocart-popup" class="addtocart-popup magnific-popup mfp-hide">
+        <div class="text-center addtocart-inner-content">
+            <h4>Added to Cart Successfully</h4>
+            <p class="pro-img"><img class="img-fluid blur-up lazyload" src="assets/images/products/addtocart-popup.jpg" data-src="assets/images/products/addtocart-popup.jpg" alt="image" title="image" /></p>
+            <p class="mb-1 modal-prod-name font-15">Carb Fits Cigarette tiyer</p>
+            <p class="mb-1 font-13">Color: Black</p>
+            <p class="font-13">Quantity: 1</p>
+            <div class="addcart-total">
+                There are <b>1</b> items in your cart
+                <div class="mt-2 cart-total">
+                    Total: <b class="price">$113.88</b>
+                </div>
+            </div>
+            <div class="button-action">
+                <button class="mb-3 btn btn-secondary btn-block continue-shopping close-popup">Continue Shopping</button>
+                <a href="cart.html" class="btn btn-primary btn-block view-cart">View Cart</a>
+            </div>
+        </div>
+    </div>
     <!-- End Product Cart Added Popup -->
 
     <!-- Start Product Quick View Popup -->
@@ -559,7 +603,6 @@
             e.preventDefault();
 
             var productId = $(this).data('product-id')
-            var productQty = $(this).data('quantity')
 
             var token = "{{ csrf_token() }}"
             var path = "{{ route ('cart.store') }}"
@@ -570,7 +613,7 @@
                 dataType: 'JSON',
                 data: {
                     product_id: productId,
-                    product_qty: productQty,
+                    product_qty: 1,
                     _token: token
                 },
                 beforeSend: function() {
@@ -592,40 +635,6 @@
             });
         });
 
-        $(document).on('click', '.remove-pro', function(e) {
-            e.preventDefault();
-
-            var productId = $(this).data('id');
-            alert(productId);
-
-            var token = "{{ csrf_token() }}"
-            var path = "{{ route ('cart.delete') }}"
-
-            $.ajax({
-                url: path,
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    '_token': token,
-                    'rowId': productId
-                },
-                success: function(response) {
-                    //         // console.log(responce);
-                    if (document.getElementById('#cart-ajax')) {
-
-                        $('#cart-ajax').html(response['cart']);
-                    }
-
-                    // $('#count').html(response['cart_count']);
-                    $('#cart-item-ajax').html(response['cartItem']);
-                    $('#header-ajax').html(response['header']);
-                },
-                error: function(jqXhr, testStatus, errorMessage) {
-                    console.log('Error: ' + errorMessage);
-                }
-            })
-
-        })
     </script>
     <!-- End add to cart functionality -->
 

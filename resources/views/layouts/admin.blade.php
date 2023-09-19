@@ -200,6 +200,49 @@
     <script src="{{ asset('assets/admin-assets/js/plugins.js')}}"></script>
     <script src="{{ asset('assets/admin-assets/js/app.js')}}"></script>
 
+    $(document).on('click', '.add-to-cart', function(e) {
+
+        e.preventDefault();
+
+        var productId = $(this).data('product-id')
+        var productQty = $(this).data('quantity')
+
+        // alert(productId);
+
+        var url = "{{ route ('cart.store') }}"
+        var token = "{{ csrf_token() }}"
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            dataType: 'JSON',
+            data: {
+                product_id: productId,
+                product_qty: productQty,
+                _token: token
+            },
+            success: function(response) {
+                // console.log(response.data);
+
+                $('body .cart-count').html(response.cart_acount);
+
+                if (response.success) {
+
+                    new Noty({
+                        theme: 'metroui',
+                        layout: 'topRight',
+                        type: 'success',
+
+                        text: response.success,
+                        killer: true,
+                        timeout: 2000,
+
+                    }).show();
+                }
+            }
+        });
+    });
+
     <!-- Google Maps API Key (you will have to obtain a Google Maps API key to use Google Maps) -->
     <!-- For more info please have a look at https://developers.google.com/maps/documentation/javascript/get-api-key#key -->
     <script src="https://maps.googleapis.com/maps/api/js?key="></script>

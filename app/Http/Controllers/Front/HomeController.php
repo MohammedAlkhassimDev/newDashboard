@@ -6,12 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function home(){
+
+        $user = Auth::user();
+
         $banners = Banner::get();
         $products = Product::where('status', 'active') -> get();
         // dd($products);
@@ -69,5 +74,13 @@ class HomeController extends Controller
 
     public function faq(){
         return view('front.pages.faq');
+    }
+
+    public function profile(){
+        $userId = Auth::id();
+
+        $orders = Order::where('user_id' , $userId)->get();
+
+        return view('front.pages.profile' , compact('orders'));
     }
 }
