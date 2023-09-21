@@ -19,14 +19,15 @@ class HomeController extends Controller
 
         $banners = Banner::get();
         $products = Product::where('status', 'active') -> get();
-        // dd($products);
+        
         $categories = Category::get();
         $brands = Brand::get();
         return view('front.pages.home' , compact('banners' , 'products' , 'categories' , 'brands'));
     }
 
     public function shop(){
-            $categories = Category::get();
+
+        $categories = Category::get();
 
         $products = Product::get();
 
@@ -77,6 +78,7 @@ class HomeController extends Controller
     }
 
     public function profile(){
+
         $userId = Auth::id();
 
         $orders = Order::where('user_id' , $userId)->get();

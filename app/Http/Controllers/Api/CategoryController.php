@@ -4,27 +4,24 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    use ApiResponse;
 
     public function __construct()
     {
-        $this->middleware(['changeLang']);
-        // auth:api
+        $this->middleware(['auth:api','changeLang']);
+      
     } // construct 
 
     public function index(Request $request) {
-        // if ( $request->header('lang'))
-        //     return $request->header('lang');
-        // else 
-        //     return "no header set";
-        // app() -> setLocale('en');
-        return app() -> getLocale();
+      
         $categories = Category::get();
 
-        return response() -> json(['data' => $categories,  'status' => true]);
+        return $this->success($categories);
 
     } // End of index
 

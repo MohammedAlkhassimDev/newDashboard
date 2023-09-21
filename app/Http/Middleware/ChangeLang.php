@@ -17,9 +17,10 @@ class ChangeLang
     {
 
         
+        app() -> setLocale('ar');
         
-        if (isset ( $request -> lang) && $request -> lang  == 'ar')
-            app() -> setLocale('ar');
+        if ( $request -> hasHeader('lang') && $request -> header('lang')  == 'en')
+            app() -> setLocale('en');
 
 
         return $next($request);
