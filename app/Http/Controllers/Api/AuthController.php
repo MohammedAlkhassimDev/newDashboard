@@ -15,29 +15,8 @@ class AuthController extends Controller
 
     use ApiResponse;
 
-    public function __construct()
-    {
-        // $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
-
     public function login(Request $request)
     {
-
-        // $credentials = request(['email', 'password']);
-
-        // if (! $token = auth()->attempt($credentials)) {
-        //     return response()->json(['error' => 'Unauthorized'], 401);
-        // }
-
-        // return $this->respondWithToken($token);
-
-        // return $request -> all();
-
-        // $request->validate([
-        //     'email' => 'required|string|email',
-        //     'password' => 'required|string',
-        // ]);
-
 
         try {
             $credentials = $request->only('email', 'password');
@@ -47,27 +26,17 @@ class AuthController extends Controller
             }
 
             $user = auth('api')->user();
-            // // $user->api_token = $token;
+        
             return response()->json([
                 'token' => $token,
                 'user' => $user,
-                // 'authorization' => [
-                //     'type' => 'bearer',
-                // ]
+              
             ]);
 
-            return $token;
+           
         } catch (\Throwable $th) {
             return "some things get wrong!!";
         }
-
-        // $token = Auth::attempt($credentials);
-
-        // if (!$token) {
-        //     return response()->json([
-        //         'message' => 'Unauthorized',
-        //     ], 401);
-        // }
 
 
 
@@ -98,23 +67,15 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $token = $request->header('Authorization');
-
-        if ($token) {
             try {
-                JWTAuth::setToken($token)->invalidate(); // logout
-
                 auth()->logout();
 
             } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
                 return  response()->json(['some thing went wrongs']);
             }
 
-            return  response()->json(['Logged out successfully']);
+            return  $this->success("Logged out successfully");
             
-        } else {
-            return  response()->json(['404', 'something wrong!']);
-        }
     } // End of logout
 
     public function refresh()

@@ -44,6 +44,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->getKey();
     }
 
+    public function orders () {
+        return $this->hasMany('App\Models\Order');
+    } // End of orders
+
+
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
      *
@@ -54,9 +59,6 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function orders () {
-        return $this->hasMany('App\Models\Order');
-    } // End of orders
-
+  
 
 } // End of model

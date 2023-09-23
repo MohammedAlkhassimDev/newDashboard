@@ -6,23 +6,15 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ChangeLang
+class AssignGuard
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $guard = null): Response
     {
-
-
-        app()->setLocale('ar');
-
-        if ($request->hasHeader('lang') && $request->header('lang')  == 'en')
-            app()->setLocale('en');
-
-
         return $next($request);
-    } // End fo  handle
+    }
 }
